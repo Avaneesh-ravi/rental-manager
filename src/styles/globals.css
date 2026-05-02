@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'DM Sans', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+@layer base {
+  * {
+    @apply border-stone-200;
+  }
+  body {
+    @apply bg-stone-50 text-stone-900 antialiased;
+    font-family: var(--font-inter);
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-stone-200 shadow-sm;
+  }
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-white font-medium px-4 py-2 rounded-xl 
+           transition-all duration-200 shadow-sm hover:shadow-warm active:scale-[0.98] 
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium px-4 py-2 rounded-xl 
+           transition-all duration-200 active:scale-[0.98];
+  }
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-xl 
+           transition-all duration-200 active:scale-[0.98];
+  }
+  .input {
+    @apply w-full px-3 py-2 rounded-xl border border-stone-200 bg-white text-stone-900
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent
+           placeholder:text-stone-400 transition-all duration-200;
+  }
+  .label {
+    @apply block text-sm font-medium text-stone-700 mb-1;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-0.5 rounded-full border;
+  }
+  .page-title {
+    @apply text-2xl font-display font-bold text-stone-900;
+  }
+  .section-title {
+    @apply text-lg font-semibold text-stone-800;
+  }
+  .nav-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-stone-600 
+           hover:bg-brand-50 hover:text-brand-700 transition-all duration-200 font-medium;
+  }
+  .nav-link-active {
+    @apply bg-brand-50 text-brand-700;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-stone-100; }
+::-webkit-scrollbar-thumb { @apply bg-stone-300 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-stone-400; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out forwards;
+}

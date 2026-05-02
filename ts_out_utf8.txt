@@ -1,0 +1,1 @@
+﻿src/lib/utils/export.ts(42,26): error TS2749: 'jsPDF' refers to a value, but is being used as a type here. Did you mean 'typeof jsPDF'?
